@@ -1,0 +1,25 @@
+.header__button{
+  font-family: 'inter', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  transition: .6s;
+  text-align: center;
+}
+.header__button:hover{
+    opacity: 0.6;
+}
+@media screen and (max-width: 465px) {
+  .header__button{
+    font-size: 14px;
+    line-height: 17px;
+    /* align-self: end; */
+    
+  }
+}
