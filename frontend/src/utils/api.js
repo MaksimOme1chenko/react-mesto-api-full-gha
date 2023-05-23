@@ -14,7 +14,7 @@
     getUserInfo() {
       return fetch(`${this._url}/users/me`,{
         headers: this._headers,
-        credentials: "include"
+        credentials: "include",
       }).then(this._checkResponse)
     }
   
@@ -41,7 +41,7 @@
     getInitialCards() {
       return fetch(`${this._url}/cards`, {
         headers: this._headers,
-        credentials: "include"
+        credentials: "include",
       }).then(this._checkResponse)
     }
   
@@ -66,7 +66,7 @@
       return fetch(`${this._url}/cards/${id}/likes`, {
         method: isLiked ? 'PUT' : 'DELETE',
         headers: this._headers,
-        credentials: "include"
+        credentials: "include",
       }).then(this._checkResponse)
     }
   }

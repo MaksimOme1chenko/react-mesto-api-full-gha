@@ -53,6 +53,21 @@ function App() {
     }
   }, [loggedIn]);
 
+  // React.useEffect(() => {
+  //   if(loggedIn) {
+  //     Promise.all([api.getUserInfo(), api.getInitialCards()])
+  //     .then((data) => {
+  //       const dataCard = data[0]
+  //       const dataUser = data[1]
+  //       setCurrentUser(dataUser)
+  //       setCards(dataCard)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     })
+  //   }
+  // }, [loggedIn]);
+
   function handleRegisterUser(inputValue) {
     apiAuth
       .register(inputValue)
@@ -71,7 +86,7 @@ function App() {
   function handeleLogin(inputValue) {
     apiAuth
       .authorize(inputValue)
-      .then(() => {
+      .then((data) => {
         setUserEmail(inputValue.email);
         setLoggedIn(true);
         navigate("/", { replace: true });
@@ -84,26 +99,22 @@ function App() {
   }
 
   function checkToken() {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      apiAuth
-        .getToken(jwt)
-        .then((res) => {
-          if (res) {
-            setUserEmail(res.data.email);
+    // const jwt = localStorage.getItem("jwt");
+    // if(jwt) {
+      apiAuth.getToken()
+        .then((data) => {
+            setUserEmail(data.email);
             setLoggedIn(true);
             navigate("/", { replace: true });
-          }
         })
-        .catch((err) => console.log(err));
-    }
+      .catch((err) => console.log(err));
   }
 
   function handleLogout() {
     navigate("/sign-in", { replace: true });
     setUserEmail("");
     setLoggedIn(false);
-    localStorage.removeItem("jwt");
+    // localStorage.removeItem("jwt");
   }
   React.useEffect(() => {
     checkToken();

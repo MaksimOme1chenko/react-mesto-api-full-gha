@@ -35,11 +35,11 @@ class ApiAuth {
         })  
       }
 
-      getToken(token){
+      getToken(){
         return fetch(`${this._url}/users/me`, {
           headers: {
+            "Accept": "application/json",
             "Content-Type": "application/json",
-            "Authorization" : `Bearer ${token}`
           },
           credentials: "include"
         }).then(this._checkResponse)
