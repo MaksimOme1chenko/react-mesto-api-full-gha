@@ -47,26 +47,11 @@ function App() {
       api
         .getInitialCards()
         .then((data) => {
-          setCards(data);
+          setCards(data.reverse());
         })
         .catch((err) => console.log(err));
     }
   }, [loggedIn]);
-
-  // React.useEffect(() => {
-  //   if(loggedIn) {
-  //     Promise.all([api.getUserInfo(), api.getInitialCards()])
-  //     .then((data) => {
-  //       const dataCard = data[0]
-  //       const dataUser = data[1]
-  //       setCurrentUser(dataUser)
-  //       setCards(dataCard)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     })
-  //   }
-  // }, [loggedIn]);
 
   function handleRegisterUser(inputValue) {
     apiAuth

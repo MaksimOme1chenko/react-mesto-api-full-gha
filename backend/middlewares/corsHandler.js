@@ -1,8 +1,8 @@
 const allowedCors = [
   'http://spanko.mesto.nomoredomains.monster',
   'https://spanko.mesto.nomoredomains.monster',
-  'http://localhost:3000',
-  'https://localhost:3000',
+  'http://localhost:3001',
+  'https://localhost:3001',
 ];
 
 const corsHandler = (req, res, next) => {
