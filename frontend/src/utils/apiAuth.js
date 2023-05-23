@@ -14,6 +14,7 @@ class ApiAuth {
         return fetch(`${this._url}/signup`,{
             method: 'POST',
             headers: this._headers,
+            credentials: "include",
             body: JSON.stringify( email, password )
         }).then(this._checkResponse)
       }
@@ -22,6 +23,7 @@ class ApiAuth {
         return fetch(`${this._url}/signin`, {
           method: 'POST',
           headers: this._headers,
+          credentials: "include",
           body: JSON.stringify( email, password )
         })
         .then(this._checkResponse)
@@ -38,12 +40,13 @@ class ApiAuth {
           headers: {
             "Content-Type": "application/json",
             "Authorization" : `Bearer ${token}`
-          }
+          },
+          credentials: "include"
         }).then(this._checkResponse)
       }
 }
 const apiAuth = new ApiAuth({
-    baseUrl: 'https://auth.nomoreparties.co',
+    baseUrl: 'https://api.spanko.mesto.nomoredomains.monster',
     headers: {
         'Content-Type': 'application/json'
     }

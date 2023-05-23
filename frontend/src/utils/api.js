@@ -14,6 +14,7 @@
     getUserInfo() {
       return fetch(`${this._url}/users/me`,{
         headers: this._headers,
+        credentials: "include"
       }).then(this._checkResponse)
     }
   
@@ -21,6 +22,7 @@
       return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
+      credentials: "include",
       body: JSON.stringify(newUserInfo),
       }).then(this._checkResponse)
     }
@@ -29,6 +31,7 @@
       return fetch(`${this._url}/users/me/avatar`, {
         method: "PATCH",
         headers: this._headers,
+        credentials: "include",
         body: JSON.stringify({
           avatar: avatar,
       })
@@ -38,6 +41,7 @@
     getInitialCards() {
       return fetch(`${this._url}/cards`, {
         headers: this._headers,
+        credentials: "include"
       }).then(this._checkResponse)
     }
   
@@ -45,6 +49,7 @@
       return fetch(`${this._url}/cards`, {
         method: "POST",
         headers: this._headers,
+        credentials: "include",
         body: JSON.stringify(newCard)
       }).then(this._checkResponse)
     }
@@ -53,6 +58,7 @@
       return fetch(`${this._url}/cards/${id}`, {
         method: "DELETE",
         headers: this._headers,
+        credentials: "include",
       }).then(this._checkResponse)
     }
   
@@ -60,13 +66,13 @@
       return fetch(`${this._url}/cards/${id}/likes`, {
         method: isLiked ? 'PUT' : 'DELETE',
         headers: this._headers,
+        credentials: "include"
       }).then(this._checkResponse)
     }
   }
   const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-59',
+    baseUrl: 'https://api.spanko.mesto.nomoredomains.monster',
     headers: {
-      authorization: 'd8cb1cf4-f83f-472d-b3e4-cd4461be9ba2',
       'Content-Type': 'application/json'
     }
   })
