@@ -14,7 +14,7 @@ function AddPlacePopup({isOpen, onClose, onOverlayClose, onAddPlace}) {
 
   function handleChangeName(e) {
     setCardName(e.target.value)
-  }
+  };
   function handleChangeLink(e) {
     setCardLink(e.target.value)
   }
