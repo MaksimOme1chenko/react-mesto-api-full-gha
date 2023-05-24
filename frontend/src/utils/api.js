@@ -77,13 +77,3 @@
     }
   })
   export default api
-
-//   fetch('https://auth.nomoreparties.co/signup', {
-//   headers: {
-//     'Content-Type': 'application/json'
-//   }
-// })
-//   .then(res => res.json())
-//   .then((result) => {
-//     console.log(result);
-//   }); 

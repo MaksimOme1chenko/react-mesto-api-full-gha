@@ -84,8 +84,6 @@ function App() {
   }
 
   function checkToken() {
-    // const jwt = localStorage.getItem("jwt");
-    // if(jwt) {
       apiAuth.getToken()
         .then((data) => {
             setUserEmail(data.email);
@@ -99,7 +97,6 @@ function App() {
     navigate("/sign-in", { replace: true });
     setUserEmail("");
     setLoggedIn(false);
-    // localStorage.removeItem("jwt");
   }
   React.useEffect(() => {
     checkToken();
